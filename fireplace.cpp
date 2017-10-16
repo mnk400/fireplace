@@ -38,7 +38,7 @@ void deallocate(int** in, int rows){
 void start_ncurses(){
     initscr();
     start_color();
-    init_color(COLOR_BLACK,    100,   100,   100);
+    init_color(COLOR_BLACK,    59,   59,    59);
     init_color(COLOR_RED,      300,   0,     0);
     init_color(COLOR_GREEN,    500,   0,     0);
     init_color(COLOR_BLUE,     700,   100,   0);
@@ -63,6 +63,21 @@ void start_ncurses(){
     heightrecord = HEIGHT;
 }
 
+void set_color_back(){
+   initscr();
+   start_color();
+   init_color(COLOR_RED,780,349,341);
+   init_color(COLOR_GREEN,341,635,525);
+   init_color(COLOR_BLUE,274,450,592);
+   init_color(COLOR_YELLOW,768,619,494);
+   init_color(COLOR_MAGENTA,592,423,564);
+   init_color(COLOR_CYAN,403,596,662);		   
+   init_color(COLOR_WHITE,823,823,823);
+   curs_set(0);
+}  
+
+
+	
 //---------------------------------------[Cellular Automata]---------------------------------------
 
 //As a cell cools it has a higher chance of cooling again on the next frame.
@@ -260,6 +275,7 @@ int main(int argc, char** argv){
     
     start_ncurses();
     flames();
+    set_color_back();
     endwin();
     return 0;
 }
